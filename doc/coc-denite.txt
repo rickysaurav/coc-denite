@@ -110,6 +110,20 @@ and actions.
 
 	- 'run' : default action.
 
+------------------------------------------------------------------------------
+						*coc-denite-command*
+:Denite coc-jump-locations
+
+	Show jump locations from |g:coc_jump_locations|.
+
+	Example: you can use Denite for <Plug>(coc-references) etc.
+>
+		let g:coc_enable_locationlist = 0
+		autocmd User CocLocationsChange Denite coc-jump-locations
+<
+
+	Actions: same as file kind.
+	See also: *CocLocationsChange*
 
 ==============================================================================
 
