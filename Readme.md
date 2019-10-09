@@ -13,7 +13,8 @@ This plugin is optional since you can use builtin list from coc, see `:h coc-lis
 - `coc-source` source list.
 - `coc-symbols` symbols of current buffer.
 - `coc-workspace` search symbols of current workspace.
-- `link` links of current buffer.
+- `coc-link` links of current buffer.
+- `coc-jump-locations` jump locations(`g:coc_jump_locations`).
 
 see `:h coc-denite` for detail.
 
