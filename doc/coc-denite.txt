@@ -111,7 +111,7 @@ and actions.
 	- 'run' : default action.
 
 ------------------------------------------------------------------------------
-						*coc-denite-command*
+						*coc-denite-jump-locations*
 :Denite coc-jump-locations
 
 	Show jump locations from |g:coc_jump_locations|.
