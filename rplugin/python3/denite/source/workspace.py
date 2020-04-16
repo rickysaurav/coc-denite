@@ -69,24 +69,28 @@ class Source(Base):
         self.vim.command("highlight default link deniteSource_WorkspaceName Normal")
         self.vim.command("highlight default link deniteSource_WorkspaceKind Typedef")
         self.vim.command("highlight default link deniteSource_WorkspaceFile Comment")
-    def on_init(self,context):
-        context['is_interactive'] = True
+
+    def on_init(self, context):
+        context["is_interactive"] = True
 
     def gather_candidates(self, context):
-        items = self.vim.call("CocAction", "getWorkspaceSymbols", context["input"],context['bufnr'])
+        items = self.vim.call(
+            "CocAction", "getWorkspaceSymbols", context["input"], context["bufnr"]
+        )
         if not items:
             return []
         candidates = []
         for item in items:
             name = item["name"]
-            kind = symbol_kind_map.get(item["kind"],"Unknown")
+            kind = symbol_kind_map.get(item["kind"], "Unknown")
             file_path = item["location"]["uri"]
-            lnum = item["location"]["range"]["start"]["line"]+1
+            lnum = item["location"]["range"]["start"]["line"] + 1
             col = item["location"]["range"]["start"]["character"]
             candidates.append(
                 {
                     "word": name,
-                    "abbr": "%s [%s] %s" % (name, kind, file_path.replace("file://","")),
+                    "abbr": "%s [%s] %s"
+                    % (name, kind, file_path.replace("file://", "")),
                     "action__path": file_path,
                     "action__col": col,
                     "action__line": lnum,
